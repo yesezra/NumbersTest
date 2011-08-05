@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NumbersTestViewController : UIViewController {
+@interface NumbersTestViewController : UIViewController <UIDocumentInteractionControllerDelegate>{
     
 }
+
+@property (nonatomic, assign) IBOutlet UIWebView* webView;
+
+- (NSURL*)urlForResource:(NSString*)name ofType:(NSString*)type;
+
+- (IBAction) openPreview;
+- (IBAction) openInPages;
 
 @end
