@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63723ABA13EC7ED800A41072 /* test.numbers in Resources */ = {isa = PBXBuildFile; fileRef = 63723AB813EC7ED800A41072 /* test.numbers */; };
 		63723ABB13EC7ED800A41072 /* test.pages in Resources */ = {isa = PBXBuildFile; fileRef = 63723AB913EC7ED800A41072 /* test.pages */; };
+		63723AC113EC84D600A41072 /* test.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 63723AC013EC84D600A41072 /* test.pdf */; };
 		6392627F13EC53B200B25E31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392627E13EC53B200B25E31 /* UIKit.framework */; };
 		6392628113EC53B200B25E31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392628013EC53B200B25E31 /* Foundation.framework */; };
 		6392628313EC53B200B25E31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6392628213EC53B200B25E31 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		63723AB813EC7ED800A41072 /* test.numbers */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.numbers; sourceTree = "<group>"; };
 		63723AB913EC7ED800A41072 /* test.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pages; sourceTree = "<group>"; };
+		63723AC013EC84D600A41072 /* test.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = test.pdf; sourceTree = "<group>"; };
 		6392627A13EC53B200B25E31 /* NumbersTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumbersTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6392627E13EC53B200B25E31 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6392628013EC53B200B25E31 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 		63723ABF13EC7F2C00A41072 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				63723AC013EC84D600A41072 /* test.pdf */,
 				63723AB813EC7ED800A41072 /* test.numbers */,
 				63723AB913EC7ED800A41072 /* test.pages */,
 			);
@@ -186,6 +189,7 @@
 				6392629813EC53B300B25E31 /* NumbersTestViewController.xib in Resources */,
 				63723ABA13EC7ED800A41072 /* test.numbers in Resources */,
 				63723ABB13EC7ED800A41072 /* test.pages in Resources */,
+				63723AC113EC84D600A41072 /* test.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

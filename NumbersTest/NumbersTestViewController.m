@@ -10,11 +10,12 @@
 
 @implementation NumbersTestViewController
 
-@synthesize webView = _webView;
+@synthesize documentInteractionController = _documentInteractionController;
 
 - (void)dealloc
 {
     [super dealloc];
+    self.documentInteractionController = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,51 +30,55 @@
     return self;
 }
 
-
-
-- (IBAction) openPreview {
-    NSURL* url = [self urlForResource:@"test" ofType:@"pages"];
-    //    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    //    [self.webView loadRequest:urlRequest];
-    UIDocumentInteractionController* documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:url];
-    documentInteractionController.delegate = self;
-    [documentInteractionController presentPreviewAnimated:YES];
+- (void) openPreviewForURL:(NSURL*)url {
+    self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:url];
+    self.documentInteractionController.delegate = self;
+    [self.documentInteractionController presentPreviewAnimated:YES];
 }
 
-- (IBAction) openInPages {
-    NSURL* url = [self urlForResource:@"test" ofType:@"pages"];
-    UIDocumentInteractionController* documentInteractionController = [[UIDocumentInteractionController interactionControllerWithURL:url] retain];
-    documentInteractionController.delegate = self;
-    NSLog(@"%@", self);
-    [documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
+- (void) openExternalAppForURL:(NSURL*)url {
+    self.documentInteractionController = [[UIDocumentInteractionController interactionControllerWithURL:url] retain];
+    self.documentInteractionController.delegate = self;
+    [self.documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
 }
 
 - (NSURL*)urlForResource:(NSString*)name ofType:(NSString*)type {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
-    NSLog(@"path: %@", path);
     NSURL *url = [NSURL fileURLWithPath:path];
-    NSLog(@"url: %@", url);
     return url;
 }
 
+#pragma mark - IBActions
+- (IBAction) openPagesDocPreview {
+    NSURL* url = [self urlForResource:@"test" ofType:@"pages"];
+    [self openPreviewForURL:url];
+}
+
+- (IBAction) openPagesDocInExternalApp {
+    NSURL* url = [self urlForResource:@"test" ofType:@"pages"];
+    [self openExternalAppForURL:url];
+}
+
+- (IBAction) openNumbersDocPreview {
+    NSURL* url = [self urlForResource:@"test" ofType:@"numbers"];
+    [self openPreviewForURL:url];
+}
+
+- (IBAction) openNumbersDocInExternalApp {
+    NSURL* url = [self urlForResource:@"test" ofType:@"numbers"];
+    [self openExternalAppForURL:url];
+}
+
+- (IBAction) openPDFPreview {
+    NSURL* url = [self urlForResource:@"test" ofType:@"pdf"];
+    [self openPreviewForURL:url];
+}
+- (IBAction) openPDFInExternalApp {
+    NSURL* url = [self urlForResource:@"test" ofType:@"pdf"];
+    [self openExternalAppForURL:url];
+}
+
 #pragma mark - View lifecycle
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-//    [self.webView loadRequest:urlRequest];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

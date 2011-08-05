@@ -12,11 +12,20 @@
     
 }
 
-@property (nonatomic, assign) IBOutlet UIWebView* webView;
+@property (nonatomic, retain) UIDocumentInteractionController* documentInteractionController;
 
 - (NSURL*)urlForResource:(NSString*)name ofType:(NSString*)type;
 
-- (IBAction) openPreview;
-- (IBAction) openInPages;
+- (void) openPreviewForURL:(NSURL*)url;
+- (void) openExternalAppForURL:(NSURL*)url;
+
+- (IBAction) openPagesDocPreview;
+- (IBAction) openPagesDocInExternalApp;
+
+- (IBAction) openNumbersDocPreview;
+- (IBAction) openNumbersDocInExternalApp;
+
+- (IBAction) openPDFPreview;
+- (IBAction) openPDFInExternalApp;
 
 @end
